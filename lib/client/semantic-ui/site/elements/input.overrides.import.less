@@ -1,0 +1,25 @@
+/*******************************
+         Site Overrides
+*******************************/
+/*--------------------
+        Focus
+---------------------*/
+.ui.input.focus input,
+.ui.input input:focus  {
+  border-color: @focusBorderColor;
+  background: @focusBackground;
+  color: @focusColor;
+  box-shadow: @focusBoxShadow;
+}
+.ui.input.focus input::-webkit-input-placeholder,
+.ui.input input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.ui.input.focus input::-moz-placeholder,
+.ui.input input:focus::-moz-placeholder {
+  color: transparent;
+}
+.ui.input.focus input::-ms-input-placeholder,
+.ui.input input:focus::-ms-input-placeholder {
+  color: transparent;
+}

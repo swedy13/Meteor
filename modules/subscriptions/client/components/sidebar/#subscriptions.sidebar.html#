@@ -1,0 +1,17 @@
+<template name="subscriptionsSidebar">
+
+	<div id="feedSB" class="ui closed right vertical sidebar">
+		<h1>Hi</h1>
+		<h1>Hi</h1>
+		<h1>Hi</h1>
+		<h1>Hi</h1>
+		<h1>Hi</h1>
+		<h1>Hi</h1>
+		<h1>Hi</h1>
+		<h1>Hi</h1>
+		<h1>Hi</h1>
+		<h1>Hi</h1>
+		<h1>Hi</h1>
+		<h1>Hi</h1>
+	</div>
+</template>

@@ -1,0 +1,19 @@
+<template name="sidebar">
+
+  <div id="sb" class="ui visible fixed right vertical inverted sidebar labeled icon menu">
+		<a id="sub-sb-ico" class="item">
+			<i class="feed icon"></i>
+		</a>
+		<a id="ts-sb-ico" class="item">
+			<i class="trophy icon"></i>
+		</a>
+		<a id="hud-sb-ico" class="item">
+			<i class="mail icon"></i>
+		</a>
+  </div>
+	<div id="sb-panel" class="ui visible super thin right vertical sidebar">
+		{{> subSidebar}}
+		{{> hudSidebar}}
+	</div>
+	
+</template>

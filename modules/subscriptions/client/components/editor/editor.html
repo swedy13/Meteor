@@ -1,0 +1,63 @@
+<template name="interactiveEditor">
+
+	<!-- Default Editor -->
+	<div id="sub-wgt">
+		<div id="sub-editor-def-container" class="">
+			<i class="main subs big grey feed icon"></i>
+			<div class="ui input bot"> <!-- For button alignment -->
+				<div class="column">
+					<h1 class="wgt-title">Subscriptions</h1>
+					<input id="sub-editor-def" class="ui small input transition hide" placeholder="Hi Mark, what's new?" rows="3">
+				</div>
+			</div>
+			<div class="buttons">
+				<button class="ui tiny narrow floated button">
+					<i class="clockwise rotated options icon"></i>
+					Filters <i class="caret down icon"></i>
+				</button>
+				<button class="ui tiny narrow floated button">
+					<i class="setting icon"></i>
+					Settings <i class="caret down icon"></i>
+				</button>
+			</div>
+			<div class="buttons hide">
+				<button class="ui tiny button">
+					<i class="clockwise rotated options icon"></i>
+					Filters
+				</button>
+				<button class="ui tiny button">
+					<i class="setting icon"></i>
+					Settings
+				</button>
+			</div>
+		</div>
+
+		<!-- Expanded Editor -->
+		<div id="sub-editor-exp-container" class="hide ui one cards">
+			<div class="centered card sub-editor-hover">
+				<textarea id="sub-editor-exp" placeholder="Share your thoughts . . ."></textarea>
+				<div id="sub-editor-footer">
+					<div class="social">
+						<button id="facebook" class="ui mini circular icon button">
+							<i class="facebook icon"></i>
+						</button>
+						<button id="twitter" class="ui mini circular icon button">
+							<i class="twitter icon"></i>
+						</button>
+						<button id="linkedin" class="ui mini circular icon button">
+							<i class="linkedin icon"></i>
+						</button>
+						<button id="google" class="ui mini circular icon button">
+							<i class="google plus icon"></i>
+						</button>
+					</div>
+					<button class="ui tiny right primary button">
+						<i class="send icon"></i>
+						Post
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</template>
