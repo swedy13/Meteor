@@ -2,35 +2,57 @@
 if (Meteor.isClient) {
 
 	Template.content.onRendered(function() {
-		$('#sub-wgt').hover(
-			function() {
-				// Show input display / remove title
-				if ($('#sub-editor-exp-container').hasClass('hide')) {
-					$('#sub-editor-def').removeClass('hide');
-					$(this).find('h1.wgt-title').text('|').css({'color':'transparent', 'display':'none'});					
-				}
-				// Highlight main icon
-				$(this).find('.main.subs.icon').addClass('blue').removeClass('grey');
-			},
-			function() {
-				// Hide input display / show title 
-				$(this).find('h1.wgt-title').text('Subscriptions').css({'color':'#aaa', 'display':'inline-block'});
-				$('#sub-editor-def').addClass('hide');
-				// Remove highlight from main icon
-				$(this).find('.main.subs.icon').addClass('grey').removeClass('blue');
-			});
-
-		// Auto-resize text area
-		$('#sub-editor-exp').autosize();
-		
-		// Toggle between default editor and expanded editor
-		$('#sub-editor-def').click(function() {
-			// Toggle to expanded editor
-			$(this).css('visibility', 'hidden');
-			$('#sub-editor-exp-container').removeClass('hide');
-			$('#sub-editor-exp').focus();
+		$('#sub-wgt').mouseenter(function() {
+			// Show input & remove title
+			if ($('#sub-editor-exp-container').hasClass('hide')) {
+				$('#sub-editor-def').removeClass('hide');
+				$(this).find('h1.wgt-title').text('|').css({'color':'transparent', 'display':'none'});					
+			}			
+			// Highlight main icon
+			$(this).find('.main.subs.icon').addClass('blue').removeClass('grey');
 		});
 
+		$('#sub-editor-def').on('click mouseleave', function() {
+			console.log('hi');
+			// Hide input & show title 
+			$(this).find('h1.wgt-title').text('Subscriptions').css({'color':'#aaa', 'display':'inline-block'});
+			$('#sub-editor-def').addClass('hide');
+			// De-highlight main icon
+			$(this).find('.main.subs.icon').addClass('grey').removeClass('blue');							
+		});
+
+
+
+		
+		/* $('#sub-wgt').hover(
+			 function() {
+			 // Show input & remove title
+			 if ($('#sub-editor-exp-container').hasClass('hide')) {
+			 $('#sub-editor-def').removeClass('hide');
+			 $(this).find('h1.wgt-title').text('|').css({'color':'transparent', 'display':'none'});					
+			 }
+			 // Highlight main icon
+			 $(this).find('.main.subs.icon').addClass('blue').removeClass('grey');
+			 },
+			 function() {
+			 // Hide input & show title 
+			 $(this).find('h1.wgt-title').text('Subscriptions').css({'color':'#aaa', 'display':'inline-block'});
+			 $('#sub-editor-def').addClass('hide');
+			 // De-highlight main icon
+			 $(this).find('.main.subs.icon').addClass('grey').removeClass('blue');
+			 }); */
+		
+		// Toggle editor (default / expanded)
+			$('#sub-editor-def').click(function() {
+				$(this).css('visibility', 'hidden');
+				$('#sub-editor-exp-container').removeClass('hide');
+				$('#sub-editor-exp').focus();
+			});
+
+		// Auto-resize editor
+		$('#sub-editor-exp').autosize();
+		
+		// Highlight social buttons
 		function expEditor() {
 			$('#facebook').click(function() {
 				$(this).toggleClass('facebook');
@@ -46,14 +68,20 @@ if (Meteor.isClient) {
 			});	
 		}
 		expEditor();
-		
-		/* $('#sub-editor-exp-container').focusout(function() {
-			 if ($('#sub-editor-exp').val() === '') {
-			 // Toggle back to default editor if no text has been entered
-			 $('#sub-editor-exp-container').addClass('hide');
-			 $('#sub-editor-def').css('visibility', 'visible');
-			 }
-			 }); */
+
+		// Close editor if no text has been entered
+		$('html').click(function() {
+			if ($('#sub-editor-exp').val() === '') {
+				$('#sub-editor-exp-container').addClass('hide');
+				$('#sub-editor-def').css('visibility', 'visible');
+			}
+		});		
+		$('#sub-editor-exp-container').click(function(e) {
+			e.stopPropagation();
+		});
+		$('#sub-editor-def').click(function(e) {
+			e.stopPropagation();
+		});
 	});
 }
 
